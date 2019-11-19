@@ -7,7 +7,7 @@ var canvas;
 var hm = new jsscompress.Hauffman();
 function sv() {
 var blob = new Blob([hm.compress(savetext)], {type: "text/plain;charset=utf-8"});
-saveAs(blob, "image.npeg");
+saveAs(blob, "image.vecs");
 }
   window.onload=function(){
 canvas = new fabric.Canvas('c', { selection: false });
