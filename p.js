@@ -9,6 +9,27 @@ function sv() {
 var blob = new Blob([hm.compress(savetext)], {type: "text/plain;charset=utf-8"});
 saveAs(blob, "image.vecs");
 }
+function drawType(x) {
+if(x=="line"){
+    return new fabric.Line(points, {
+    strokeWidth: 5,
+    fill: 'red',
+    stroke: 'red',
+    originX: 'center',
+    originY: 'center'
+  });
+}
+if(x=="rect"){
+  new fabric.Rect({
+    width: 100,
+    height: 100,
+    fill: 'red',
+    opacity: 1,
+    left: 0,
+    top: 0
+  });
+}
+}
   window.onload=function(){
 canvas = new fabric.Canvas('c', { selection: false });
 canvas.on('mouse:down', function(o){
@@ -16,13 +37,7 @@ isDown = true;
 var pointer = canvas.getPointer(o.e);
 savetext+="line:("+pointer.x+","+pointer.y+")";
 points = [ pointer.x, pointer.y, pointer.x, pointer.y ];
-line = new fabric.Line(points, {
-  strokeWidth: 5,
-  fill: 'red',
-  stroke: 'red',
-  originX: 'center',
-  originY: 'center'
-});
+line = drawType("line");
 canvas.add(line);
 });
 canvas.on('mouse:move', function(o){
