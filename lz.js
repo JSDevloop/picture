@@ -6,7 +6,7 @@ var jsscompress = jsscompress || {};
         a[i]  = a[j];
         a[j] = temp;
     };
-    
+    //type h
     var HauffNode = function(config) {
         var config = config || {};
         if(!config.left) {
